@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,9 +27,10 @@ Route::get('/home', function () {
     return view('Frontend.index');
 });
 
-Route::get('/shop', function () {
-    return view('Frontend.shop');
-});
+// Route::get('/shop', function () {
+//     return view('Frontend.shop');
+// });
+Route::get('/shop',[FrontendController::class,'Index'])->name('Frontend.shop');
 
 Route::get('/contact', function () {
     return view('Frontend.contact');
@@ -49,3 +52,10 @@ Route::get('/manageCategory',[CategoryController::class,'Index'])->name('admin.m
 Route::delete('/deleteCategory/{id}',[CategoryController::class,'Delete'])->name('admin.deleteCategory');
 Route::get('/editCategory/{id}',[CategoryController::class,'Edit'])->name('admin.editCategory');
 Route::put('/updateCategory/{id}',[CategoryController::class,'Update'])->name('admin.updateCategory');
+
+
+//Products Routes
+Route::get('/admin/addProduct',[ProductController::class,'Create'])->name('admin.addProduct');
+Route::post('/admin/addProduct',[ProductController::class,'Store'])->name('admin.storeProduct');
+Route::get('/admin/AllProduct',[ProductController::class,'Index'])->name('admin.manageProduct');
+Route::delete('admin/deleteProduct/{id}',[ProductController::class,'Delete'])->name('admin.deleteProduct');

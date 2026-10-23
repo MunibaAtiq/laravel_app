@@ -1,6 +1,6 @@
 @extends('Admin.Layouts.MainLayout')
 @section('centercontent')
-       <div class="page-header">
+    <div class="page-header">
       <div>
         <h1 class="page-title">Update New Category</h1>
         <p class="page-subtitle">Premium layout elements, toggle switches, and input decorators.</p>

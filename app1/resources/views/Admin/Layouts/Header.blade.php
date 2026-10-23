@@ -74,13 +74,13 @@
         <div class="sidebar-menu-title">Manage Products</div>
         <ul class="sidebar-menu-list">
           <li class="sidebar-menu-item">
-            <a href="#" class="sidebar-menu-link" id="menu-basictables" title="Basic Tables">
+            <a href="{{ route('admin.addProduct') }}" class="sidebar-menu-link" id="menu-basictables" title="Basic Tables">
               <i class="bi bi-table"></i>
               <span>Add Product</span>
             </a>
           </li>
           <li class="sidebar-menu-item">
-            <a href="#" class="sidebar-menu-link" id="menu-uiforms" title="Forms and Input">
+            <a href="{{ route('admin.manageProduct') }}" class="sidebar-menu-link" id="menu-uiforms" title="Forms and Input">
               <i class="bi bi-input-cursor-text"></i>
               <span>Manage Products</span>
             </a>
@@ -229,15 +229,16 @@
               <hr class="dropdown-divider">
             </li>
             <li><!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+              <form method="POST" action="{{ route('logout') }}">
+                  @csrf
 
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form></li>
+                  <x-dropdown-link :href="route('logout')"
+                          onclick="event.preventDefault();
+                                      this.closest('form').submit();">
+                      {{ __('Log Out') }}
+                  </x-dropdown-link>
+              </form>
+            </li>
           </ul>
         </div>
       </div>
